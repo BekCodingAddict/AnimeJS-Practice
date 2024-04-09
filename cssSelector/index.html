@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="box" onclick="move()">
+            <div class="item">
+
+            </div>
+        </div>
+
+        <div class="box" onclick="move()">
+            <div class="item">
+            </div>
+            <div class="item">
+            </div>
+            <div class="item">
+            </div>
+        </div>
+
+        <div class="box" onclick="batteryLog()">
+            <div class="battery-log">
+            </div>
+        </div>
+
+        <div class="box" onclick="cssProperties()">
+            <div class="cssProperties"></div>
+        </div>
+
+    </div>
+    <script>
+        var nthChild = document.querySelectorAll('.wrapper .box:nth-child(2) .item')
+        function move() {
+            const isMovie = false;
+            if (!isMovie) {
+                anime({
+                    targets: '.wrapper .box .item',
+                    translateX: 250,
+
+                })
+
+                anime({
+                    targets: nthChild,
+                    translateX: -250,
+                })
+            }
+        }
+
+
+        function batteryLog() {
+            var logEl = document.querySelector('.battery-log');
+            var battery = {
+                charged: '0%',
+                cycles: 120,
+            }
+
+            anime({
+                targets: battery,
+                charged: '100%',
+                cycles: 130,
+                round: 1,
+                easing: 'linear',
+                update: function () {
+                    logEl.innerHTML = JSON.stringify(battery);
+                }
+            })
+        }
+
+        const cssProperties = () => {
+            anime({
+                targets: '.cssProperties',
+                keyframes: [
+                    { translateY: 400 },
+                    { translateY: -400 },
+
+                ],
+                backgroundColor: '#FFF',
+                borderRadius: ['0%', '50%'],
+                easing: 'easeInOutQuad',
+                scale: 2,
+                rotate: '1turn',
+                direction: 'alternate',
+                duration: 2000,
+            })
+        }
+    </script>
+    <script src="./anime.min.js"></script>
+</body>
+
+</html>
