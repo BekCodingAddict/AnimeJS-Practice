@@ -1,0 +1,84 @@
+@font-face {
+	font-family: "DS-Digital Bold Italic";
+	font-style: normal;
+	font-weight: normal;
+	src: local("DS-Digital Bold Italic"), url("DS-DIGIT.woff") format("woff");
+}
+
+:root {
+	--rgb-current-3: 65, 39, 38;
+	--rgb-current-1: 255, 131, 51;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header {
+	background-color: rgb(45, 37, 37);
+	height: 8rem;
+	width: 100%;
+	padding: 0 2rem;
+}
+
+header img {
+	height: 4rem;
+}
+
+body {
+	height: 100dvh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* Vertical center */
+	align-items: center; /* Horizontal center */
+	gap: 2rem;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+
+	position: relative;
+	width: 100%;
+	height: var(--demo-height);
+	touch-action: manipulation;
+	background-color: rgba(var(--rgb-current-3), 1);
+	max-width: 20rem;
+	border-radius: 0.4rem;
+	padding: 1rem;
+	height: 18rem;
+	gap: 2rem;
+	color: azure;
+}
+
+.btn {
+	background-color: rgba(212, 72, 72, 0.39);
+	border-radius: 4px;
+	padding: 0.5rem;
+	border: none;
+}
+
+.wrapper .header {
+	font-size: 1.2rem;
+}
+
+.wrapper .column {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.wrapper .box {
+	background-color: rgba(0, 0, 0, 0.548);
+	border-radius: 4px;
+	padding: 0.5rem auto;
+}
+
+.value {
+	font-family: "DS-Digital Bold Italic";
+	font-weight: normal;
+	font-size: 42px;
+}
